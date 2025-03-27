@@ -1,0 +1,17 @@
+name: Approve
+
+on:
+  pull_request:
+    types: [review_requested]
+    branches: [acceptance]
+
+jobs:
+  approve:
+    name: Approve
+    runs-on: ubuntu-latest
+    steps:
+      - name: Approve
+        uses: appart-media/actions/approve@3
+        with:
+          token: ${{ secrets.GH_ORG_PAT }}
+
